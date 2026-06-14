@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{51A7A7D8-D096-3CBE-B4CC-AA43963D42C2}|EventosVivos.Domain\\EventosVivos.Domain.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.domain\\entities\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51A7A7D8-D096-3CBE-B4CC-AA43963D42C2}|EventosVivos.Domain\\EventosVivos.Domain.csproj|solutionrelative:eventosvivos.domain\\entities\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4B4FFB0E-D781-7F16-2489-CD97F620280A}|EventosVivos.Application\\EventosVivos.Application.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.application\\features\\reservas\\commands\\confirmarpago\\confirmarpagohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B4FFB0E-D781-7F16-2489-CD97F620280A}|EventosVivos.Application\\EventosVivos.Application.csproj|solutionrelative:eventosvivos.application\\features\\reservas\\commands\\confirmarpago\\confirmarpagohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{51A7A7D8-D096-3CBE-B4CC-AA43963D42C2}|EventosVivos.Domain\\EventosVivos.Domain.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.domain\\interfaces\\ireservarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51A7A7D8-D096-3CBE-B4CC-AA43963D42C2}|EventosVivos.Domain\\EventosVivos.Domain.csproj|solutionrelative:eventosvivos.domain\\interfaces\\ireservarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51A7A7D8-D096-3CBE-B4CC-AA43963D42C2}|EventosVivos.Domain\\EventosVivos.Domain.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.domain\\entities\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51A7A7D8-D096-3CBE-B4CC-AA43963D42C2}|EventosVivos.Domain\\EventosVivos.Domain.csproj|solutionrelative:eventosvivos.domain\\entities\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4B4FFB0E-D781-7F16-2489-CD97F620280A}|EventosVivos.Application\\EventosVivos.Application.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.application\\features\\eventos\\queries\\reporteocupacion\\reporteocupacionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,37 +78,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ConfirmarPagoHandler.cs",
               "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Application\\Features\\Reservas\\Commands\\ConfirmarPago\\ConfirmarPagoHandler.cs",
               "RelativeDocumentMoniker": "EventosVivos.Application\\Features\\Reservas\\Commands\\ConfirmarPago\\ConfirmarPagoHandler.cs",
               "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Application\\Features\\Reservas\\Commands\\ConfirmarPago\\ConfirmarPagoHandler.cs",
               "RelativeToolTip": "EventosVivos.Application\\Features\\Reservas\\Commands\\ConfirmarPago\\ConfirmarPagoHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCIAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-14T22:09:47.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ReporteOcupacionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
-              "RelativeDocumentMoniker": "EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
-              "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
-              "RelativeToolTip": "EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T21:44:11.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ReservaRepository.cs",
               "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Infrastructure\\Repositories\\ReservaRepository.cs",
               "RelativeDocumentMoniker": "EventosVivos.Infrastructure\\Repositories\\ReservaRepository.cs",
@@ -121,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IReservaRepository.cs",
               "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Domain\\Interfaces\\IReservaRepository.cs",
               "RelativeDocumentMoniker": "EventosVivos.Domain\\Interfaces\\IReservaRepository.cs",
@@ -160,15 +147,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Reserva.cs",
               "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Domain\\Entities\\Reserva.cs",
               "RelativeDocumentMoniker": "EventosVivos.Domain\\Entities\\Reserva.cs",
               "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Domain\\Entities\\Reserva.cs",
               "RelativeToolTip": "EventosVivos.Domain\\Entities\\Reserva.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwDQAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAD4vyMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-14T17:40:59.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReporteOcupacionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
+              "RelativeDocumentMoniker": "EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
+              "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
+              "RelativeToolTip": "EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-14T21:44:11.577Z",
               "EditorCaption": ""
             },
             {

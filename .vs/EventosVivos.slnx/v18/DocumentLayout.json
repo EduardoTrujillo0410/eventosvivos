@@ -90,8 +90,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Reservas\\Commands\\ConfirmarPago\\ConfirmarPagoHandler.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwCIAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T22:09:47.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T22:09:47.791Z"
             },
             {
               "$type": "Document",
@@ -103,8 +102,7 @@
               "RelativeToolTip": "EventosVivos.Infrastructure\\Repositories\\ReservaRepository.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAIA2wB4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T20:29:26.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T20:29:26.74Z"
             },
             {
               "$type": "Document",
@@ -116,8 +114,7 @@
               "RelativeToolTip": "EventosVivos.Domain\\Interfaces\\IReservaRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T20:28:51.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T20:28:51.12Z"
             },
             {
               "$type": "Document",
@@ -129,8 +126,7 @@
               "RelativeToolTip": "EventosVivos.Infrastructure\\Persistence\\AppDbContext.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T20:24:32.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T20:24:32.61Z"
             },
             {
               "$type": "Document",
@@ -142,8 +138,7 @@
               "RelativeToolTip": "EventosVivos.Infrastructure\\Repositories\\EventoRepository.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAA/wCoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T16:00:43.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-13T16:00:43.385Z"
             },
             {
               "$type": "Document",
@@ -153,7 +148,7 @@
               "RelativeDocumentMoniker": "EventosVivos.Domain\\Entities\\Reserva.cs",
               "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Domain\\Entities\\Reserva.cs",
               "RelativeToolTip": "EventosVivos.Domain\\Entities\\Reserva.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAD4vyMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA9wCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-14T17:40:59.256Z",
               "EditorCaption": ""
@@ -168,8 +163,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Eventos\\Queries\\ReporteOcupacion\\ReporteOcupacionHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T21:44:11.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T21:44:11.577Z"
             },
             {
               "$type": "Document",
@@ -181,8 +175,7 @@
               "RelativeToolTip": "EventosVivos.Application\\DTOs\\ReservaDTO.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAcwBgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T21:49:42.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T21:49:42.876Z"
             },
             {
               "$type": "Document",
@@ -194,8 +187,7 @@
               "RelativeToolTip": "EventosVivos.Api\\Controllers\\ReservasController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T20:29:48.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T20:29:48.84Z"
             },
             {
               "$type": "Document",
@@ -207,8 +199,7 @@
               "RelativeToolTip": "EventosVivos.Domain\\Entities\\Evento.cs",
               "ViewState": "AgIAADEAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T17:37:02.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T17:37:02.931Z"
             },
             {
               "$type": "Document",
@@ -220,8 +211,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Reservas\\Queries\\ListarReservasPorEvento\\ListarReservasPorEventoQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T20:33:01.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T20:33:01.074Z"
             },
             {
               "$type": "Document",
@@ -233,8 +223,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Reservas\\Queries\\ListarReservasPorEvento\\ListarReservasPorEventoHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T20:33:32.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T20:33:32.014Z"
             },
             {
               "$type": "Document",
@@ -246,8 +235,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Eventos\\Commands\\CrearEvento\\CrearEventoValidator.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAswBgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T17:35:25.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T17:35:25.554Z"
             },
             {
               "$type": "Document",
@@ -259,8 +247,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Eventos\\Commands\\CrearEvento\\CrearEventoHandler.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAIA5wBoAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T17:35:04.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T17:35:04.714Z"
             },
             {
               "$type": "Document",
@@ -272,8 +259,7 @@
               "RelativeToolTip": "EventosVivos.Api\\Controllers\\EventosController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwBcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T18:04:31.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T18:04:31.373Z"
             },
             {
               "$type": "Document",
@@ -285,8 +271,7 @@
               "RelativeToolTip": "EventosVivos.Application\\Features\\Eventos\\Commands\\CrearEvento\\CrearEventoCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T17:35:00.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T17:35:00.886Z"
             },
             {
               "$type": "Document",
@@ -298,8 +283,7 @@
               "RelativeToolTip": "EventosVivos.Domain\\Common\\ColombiaDateTime.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-14T17:50:05.441Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-14T17:50:05.441Z"
             }
           ]
         }
