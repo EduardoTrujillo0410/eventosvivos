@@ -1,0 +1,15 @@
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\bin\Debug\net10.0\EventosVivos.Application.deps.json
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\bin\Debug\net10.0\EventosVivos.Application.dll
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\bin\Debug\net10.0\EventosVivos.Application.pdb
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\bin\Debug\net10.0\EventosVivos.Domain.dll
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\bin\Debug\net10.0\EventosVivos.Domain.pdb
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.csproj.AssemblyReference.cache
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.AssemblyInfoInputs.cache
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.AssemblyInfo.cs
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.csproj.CoreCompileInputs.cache
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosV.A48560CB.Up2Date
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.dll
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\refint\EventosVivos.Application.dll
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.pdb
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\ref\EventosVivos.Application.dll

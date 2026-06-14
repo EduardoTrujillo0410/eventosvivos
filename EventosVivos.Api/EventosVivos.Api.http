@@ -1,0 +1,43 @@
+@EventosVivos.Api_HostAddress = http://localhost:5059
+
+### Listar venues
+GET {{EventosVivos.Api_HostAddress}}/api/venues
+Accept: application/json
+
+###
+
+### Listar eventos
+GET {{EventosVivos.Api_HostAddress}}/api/eventos?pagina=1&tamano=10
+Accept: application/json
+
+###
+
+### Crear evento
+POST {{EventosVivos.Api_HostAddress}}/api/eventos
+Content-Type: application/json
+
+{
+  "titulo": "Conferencia Tech 2025",
+  "descripcion": "Descripción válida del evento con más de diez caracteres",
+  "venueId": 1,
+  "capacidadMaxima": 100,
+  "fechaInicio": "2026-08-01T09:00:00Z",
+  "fechaFin": "2026-08-01T12:00:00Z",
+  "precioEntrada": 50.00,
+  "tipo": "conferencia"
+}
+
+###
+
+### Crear reserva
+POST {{EventosVivos.Api_HostAddress}}/api/reservas
+Content-Type: application/json
+
+{
+  "eventoId": "REEMPLAZA-CON-ID-DEL-EVENTO",
+  "cantidad": 2,
+  "nombreComprador": "Juan Pérez",
+  "emailComprador": "juan@test.com"
+}
+
+###
