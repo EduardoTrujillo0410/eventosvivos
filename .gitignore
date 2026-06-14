@@ -1,0 +1,22 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.db
+*.db-shm
+*.db-wal
+
+# Angular
+eventosvivos-frontend/node_modules/
+eventosvivos-frontend/dist/
+eventosvivos-frontend/.angular/
+
+# Credenciales
+appsettings.Development.json
+appsettings.Production.json
+
+# OS
+.DS_Store
+Thumbs.db
