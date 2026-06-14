@@ -25,7 +25,7 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Unit Tests
-        run: dotnet test EventosVivos.Tests --no-build --configuration Release --verbosity normal
+        run: dotnet test EventosVivos.UnitTests --no-build --configuration Release --verbosity normal
 
   frontend:
     name: Build Frontend
