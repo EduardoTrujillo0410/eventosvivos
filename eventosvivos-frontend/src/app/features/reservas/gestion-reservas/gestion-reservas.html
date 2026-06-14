@@ -1,0 +1,88 @@
+<div class="container-fluid py-4">
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <a routerLink="/eventos" class="btn btn-sm btn-outline-secondary">← Volver</a>
+    <div>
+      <h2 class="h4 mb-0 fw-bold">Gestión de Reservas</h2>
+      @if (evento(); as e) {
+        <small class="text-muted">{{ e.titulo }} — {{ e.venueNombre }}</small>
+      }
+    </div>
+  </div>
+
+  @if (mensaje(); as m) {
+    <div class="alert" [ngClass]="'alert-' + m.tipo">{{ m.texto }}</div>
+  }
+
+  @if (cargando()) {
+    <div class="text-center py-5">
+      <div class="spinner-border text-primary"></div>
+    </div>
+  } @else if (reservas().length === 0) {
+    <div class="text-center py-5 text-muted">
+      <p>No hay reservas para este evento aún.</p>
+    </div>
+  } @else {
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Comprador</th>
+            <th>Email</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+            <th>Código</th>
+            <th>Fecha</th>
+            <!-- RF-04 y RF-05: acciones según rol -->
+            @if (esAdmin()) {
+              <th>Acciones</th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          @for (r of reservas(); track r.id) {
+            <tr>
+              <td class="fw-semibold">{{ r.nombreComprador }}</td>
+              <td class="text-muted small">{{ r.emailComprador }}</td>
+              <td>{{ r.cantidad }}</td>
+              <td>
+                <span class="badge" [ngClass]="badgeEstado(r.estado)">
+                  {{ r.estado }}
+                </span>
+              </td>
+              <td>
+                @if (r.codigoReserva) {
+                  <code class="text-success fw-bold">{{ r.codigoReserva }}</code>
+                } @else {
+                  <span class="text-muted">—</span>
+                }
+              </td>
+              <td class="small text-muted">
+                {{ r.creadaEn | date:'dd/MM/yyyy HH:mm' }}
+              </td>
+              @if (esAdmin()) {
+                <td>
+                  <div class="d-flex gap-1">
+                    <!-- RF-04: solo si está pendiente de pago -->
+                    @if (r.estado === 'PendientePago') {
+                      <button class="btn btn-sm btn-success"
+                        (click)="confirmarPago(r.id)">
+                        ✓ Confirmar Pago
+                      </button>
+                    }
+                    <!-- RF-05: cancelar si no está ya cancelada -->
+                    @if (r.estado !== 'Cancelada') {
+                      <button class="btn btn-sm btn-outline-danger"
+                        (click)="cancelar(r.id)">
+                        Cancelar
+                      </button>
+                    }
+                  </div>
+                </td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

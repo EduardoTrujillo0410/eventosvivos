@@ -1,0 +1,80 @@
+<div class="container py-4" style="max-width: 600px;">
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <a routerLink="/eventos" class="btn btn-sm btn-outline-secondary">← Volver</a>
+    <h2 class="h4 mb-0 fw-bold">Reservar Entradas</h2>
+  </div>
+
+  @if (evento(); as e) {
+    <div class="card mb-3 border-0 bg-light">
+      <div class="card-body">
+        <h5 class="fw-semibold">{{ e.titulo }}</h5>
+        <p class="mb-1 text-muted small"> Ubicación: {{ e.venueNombre }}</p>
+        <p class="mb-1 text-muted small"> Fecha Inicio: {{ e.fechaInicio | date:'dd/MM/yyyy HH:mm' }}</p>
+        <p class="mb-0">
+          <span class="fw-bold text-success">${{ e.precioEntrada }}</span>
+          <span class="text-muted ms-2">· {{ e.entradasDisponibles }} disponibles</span>
+        </p>
+      </div>
+    </div>
+  }
+
+  @if (reservaCreada(); as r) {
+    <div class="alert alert-success">
+      <h5 class="alert-heading"> Reserva creada</h5>
+      <p class="mb-1"><strong>ID:</strong> {{ r.id }}</p>
+      <p class="mb-1"><strong>Estado:</strong> {{ r.estado }}</p>
+      @if (r.codigoReserva) {
+        <p class="mb-1"><strong>Código:</strong> <code>{{ r.codigoReserva }}</code></p>
+      }
+      <hr>
+      <div class="d-flex gap-2">
+        @if (r.estado === 'PendientePago') {
+          <button class="btn btn-success btn-sm" (click)="confirmarPago(r.id)">
+            Confirmar Pago
+          </button>
+        }
+        @if (r.estado !== 'Cancelada') {
+          <button class="btn btn-outline-danger btn-sm" (click)="cancelarReserva(r.id)">
+            Cancelar Reserva
+          </button>
+        }
+      </div>
+    </div>
+  } @else {
+    @if (errorMsg()) {
+      <div class="alert alert-danger">{{ errorMsg() }}</div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="card shadow-sm border-0">
+        <div class="card-body row g-3">
+          <div class="col-12">
+            <label class="form-label fw-semibold">Nombre completo *</label>
+            <input type="text" class="form-control" formControlName="nombreComprador"
+              [class.is-invalid]="isInvalid('nombreComprador')">
+            <div class="invalid-feedback">El nombre es obligatorio.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label fw-semibold">Email *</label>
+            <input type="email" class="form-control" formControlName="emailComprador"
+              [class.is-invalid]="isInvalid('emailComprador')">
+            <div class="invalid-feedback">Ingresa un email válido.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label fw-semibold">Cantidad de entradas *</label>
+            <input type="number" class="form-control" formControlName="cantidad" min="1"
+              [class.is-invalid]="isInvalid('cantidad')">
+            <div class="invalid-feedback">Mínimo 1 entrada.</div>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent border-0 d-flex justify-content-end gap-2">
+          <a routerLink="/eventos" class="btn btn-outline-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary" [disabled]="enviando()">
+            @if (enviando()) { <span class="spinner-border spinner-border-sm me-1"></span> }
+            Reservar
+          </button>
+        </div>
+      </div>
+    </form>
+  }
+</div>

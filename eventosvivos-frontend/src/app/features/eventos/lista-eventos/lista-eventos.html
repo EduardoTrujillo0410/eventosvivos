@@ -1,0 +1,116 @@
+<div class="container-fluid py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="h3 mb-0 fw-bold"> EventosVivos</h1>
+      <small class="text-muted">
+        {{ esAdmin() ? ' Administrador' : ' Cliente' }}
+      </small>
+    </div>
+    <div class="d-flex gap-2">
+      @if (esAdmin()) {
+      <a routerLink="/eventos/crear" class="btn btn-primary">+ Nuevo Evento</a>
+      }
+      <button class="btn btn-outline-secondary" (click)="salir()">Salir</button>
+    </div>
+  </div>
+
+  <!-- Filtros -->
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Buscar por título..." [(ngModel)]="filtros.titulo"
+            (keyup.enter)="aplicarFiltros()">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" [(ngModel)]="filtros.tipo">
+            <option value="">Todos los tipos</option>
+            <option value="conferencia">Conferencia</option>
+            <option value="taller">Taller</option>
+            <option value="concierto">Concierto</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" [(ngModel)]="filtros.estado">
+            <option value="">Todos los estados</option>
+            <option value="activo">Activo</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="completado">Completado</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select" [(ngModel)]="filtros.venueId">
+            <option [ngValue]="undefined">Todos los venues</option>
+            @for (v of venues(); track v.id) {
+            <option [ngValue]="v.id">{{ v.nombre }}</option>
+            }
+          </select>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-outline-primary w-100" (click)="aplicarFiltros()">
+            Filtrar
+          </button>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-outline-secondary w-100" (click)="limpiarFiltros()">
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if (cargando()) {
+  <div class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+  } @else if (error()) {
+  <div class="alert alert-danger">{{ error() }}</div>
+  } @else if (eventos()?.items?.length === 0) {
+  <div class="text-center py-5 text-muted">
+    <p class="fs-5">No se encontraron eventos</p>
+    @if (esAdmin()) {
+    <a routerLink="/eventos/crear" class="btn btn-primary">Crear el primero</a>
+    }
+  </div>
+  } @else {
+  <div class="row g-3">
+    @for (evento of eventos()?.items ?? []; track evento.id) {
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-2">
+            <span class="badge bg-primary text-capitalize">{{ evento.tipo }}</span>
+            <span class="badge text-capitalize" [ngClass]="badgeClase(evento.estado)">{{ evento.estado }}</span>
+          </div>
+          <h5 class="card-title fw-semibold">{{ evento.titulo }}</h5>
+          <p class="text-muted small">{{ evento.venueNombre }}</p>
+          <p class="text-muted small">
+            Fecha Inicio {{ evento.fechaInicio | date:'dd/MM/yyyy HH:mm' }}
+          </p>
+          <p class="text-muted small">
+            Fecha Fin {{ evento.fechaFin | date:'dd/MM/yyyy HH:mm' }}
+          </p>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <span class="fw-bold text-success">${{ evento.precioEntrada | number:'1.0-0' }}</span>
+            <span class="small text-muted">
+              {{ evento.entradasDisponibles }} / {{ evento.capacidadMaxima }} disponibles
+            </span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent border-0 d-flex gap-2">
+          @if (evento.estado === 'activo' && evento.entradasDisponibles > 0) {
+          <a [routerLink]="['/eventos', evento.id, 'reservar']" class="btn btn-sm btn-primary flex-fill">Reservar</a>
+          }
+          <a [routerLink]="['/eventos', evento.id, 'reservas']" class="btn btn-sm btn-warning flex-fill">Reservas</a>
+          @if (esAdmin()) {
+          <a [routerLink]="['/eventos', evento.id, 'reporte']"
+            class="btn btn-sm btn-outline-secondary flex-fill">Reporte</a>
+          }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>

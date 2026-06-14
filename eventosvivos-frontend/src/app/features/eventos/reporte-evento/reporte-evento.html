@@ -1,0 +1,63 @@
+<div class="container py-4" style="max-width: 600px;">
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <a routerLink="/eventos" class="btn btn-sm btn-outline-secondary">← Volver</a>
+    <h2 class="h4 mb-0 fw-bold">Reporte de Ocupación</h2>
+  </div>
+
+  @if (cargando()) {
+  <div class="text-center py-5">
+    <div class="spinner-border text-primary"></div>
+  </div>
+  } @else if (reporte(); as r) {
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">{{ r.eventoTitulo }}</h5>
+      <small class="text-white-50">Estado: {{ r.estadoEvento }}</small>
+    </div>
+    <div class="card-body">
+      <div class="row text-center g-3">
+        <div class="col-6">
+          <div class="p-3 bg-light rounded">
+            <div class="display-6 fw-bold text-success">{{ r.entradasVendidas }}</div>
+            <div class="text-muted small">Entradas Vendidas</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 bg-light rounded">
+            <div class="display-6 fw-bold text-primary">{{ r.entradasDisponibles }}</div>
+            <div class="text-muted small">Disponibles</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 bg-light rounded">
+            <div class="display-6 fw-bold text-warning">{{ r.porcentajeOcupacion }}%</div>
+            <div class="text-muted small">Ocupación</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 bg-light rounded">
+            <div class="display-6 fw-bold text-success">${{ r.totalIngresos | number:'1.0-0' }}</div>
+            <div class="text-muted small">Total Ingresos</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 bg-light rounded">
+            <div class="display-6 fw-bold text-danger">{{ r.entradasPerdidas }}</div>
+            <div class="text-muted small">Entradas Perdidas</div>
+            <div class="text-muted" style="font-size:0.7rem">Canceladas con penalización</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="progress" style="height: 20px;">
+          <div class="progress-bar bg-success" role="progressbar" [style.width.%]="r.porcentajeOcupacion"
+            [attr.aria-valuenow]="r.porcentajeOcupacion" aria-valuemin="0" aria-valuemax="100">
+            {{ r.porcentajeOcupacion }}%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

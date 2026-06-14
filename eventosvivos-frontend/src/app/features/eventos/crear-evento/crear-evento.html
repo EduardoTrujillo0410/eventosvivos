@@ -1,0 +1,88 @@
+<div class="container py-4" style="max-width: 700px;">
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <a routerLink="/eventos" class="btn btn-sm btn-outline-secondary">← Volver</a>
+    <h2 class="h4 mb-0 fw-bold">Crear Evento</h2>
+  </div>
+
+  @if (errorMsg()) {
+    <div class="alert alert-danger">{{ errorMsg() }}</div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="card shadow-sm border-0">
+      <div class="card-body row g-3">
+
+        <div class="col-12">
+          <label class="form-label fw-semibold">Título *</label>
+          <input type="text" class="form-control" formControlName="titulo"
+            [class.is-invalid]="isInvalid('titulo')">
+          <div class="invalid-feedback">Entre 5 y 100 caracteres.</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label fw-semibold">Descripción *</label>
+          <textarea class="form-control" rows="3" formControlName="descripcion"
+            [class.is-invalid]="isInvalid('descripcion')"></textarea>
+          <div class="invalid-feedback">Entre 10 y 500 caracteres.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Venue *</label>
+          <select class="form-select" formControlName="venueId"
+            [class.is-invalid]="isInvalid('venueId')">
+            <option [ngValue]="null">Seleccionar venue...</option>
+            @for (v of venues(); track v.id) {
+              <option [ngValue]="v.id">{{ v.nombre }} (cap. {{ v.capacidad }}) — {{ v.ciudad }}</option>
+            }
+          </select>
+          <div class="invalid-feedback">Selecciona un venue.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Tipo de evento *</label>
+          <select class="form-select" formControlName="tipo"
+            [class.is-invalid]="isInvalid('tipo')">
+            <option value="">Seleccionar tipo...</option>
+            <option value="conferencia">Conferencia</option>
+            <option value="taller">Taller</option>
+            <option value="concierto">Concierto</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Capacidad máxima *</label>
+          <input type="number" class="form-control" formControlName="capacidadMaxima"
+            [class.is-invalid]="isInvalid('capacidadMaxima')">
+          <div class="invalid-feedback">Debe ser un entero positivo.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Precio de entrada ($) *</label>
+          <input type="number" step="0.01" class="form-control" formControlName="precioEntrada"
+            [class.is-invalid]="isInvalid('precioEntrada')">
+          <div class="invalid-feedback">Debe ser un valor positivo.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Fecha y hora de inicio *</label>
+          <input type="datetime-local" class="form-control" formControlName="fechaInicio"
+            [class.is-invalid]="isInvalid('fechaInicio')">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Fecha y hora de fin *</label>
+          <input type="datetime-local" class="form-control" formControlName="fechaFin"
+            [class.is-invalid]="isInvalid('fechaFin')">
+        </div>
+
+      </div>
+      <div class="card-footer bg-transparent border-0 d-flex gap-2 justify-content-end">
+        <a routerLink="/eventos" class="btn btn-outline-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary" [disabled]="enviando()">
+          @if (enviando()) { <span class="spinner-border spinner-border-sm me-1"></span> }
+          Crear Evento
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
