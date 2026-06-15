@@ -172,14 +172,23 @@ ng serve
 ##  CI/CD Pipeline
 
 Push a main
+
 │
+
 ▼
+
 GitHub Actions CI
+
 ├──  Build & Test Backend
+
 └──  Build Frontend
+
 │
+
 ▼ si todo pasa
+
 ├──  Deploy Backend → Railway
+
 └──  Deploy Frontend → Vercel
 
 Ver pipelines: [GitHub Actions](https://github.com/EduardoTrujillo0410/eventosvivos/actions)
