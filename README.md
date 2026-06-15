@@ -10,7 +10,7 @@ https://eventosvivos.vercel.app/
 _________________________________
 
 | Servicio | URL |
-
+|---|---|
 | Frontend | https://vercel.com/eduardo-t-s/eventosvivos |
 | Backend API | https://railway.com/project/cc31ffd8-e0fb-4913-803a-8f8b33f2f890/service/3dff43c5-0f8a-4d21-a085-024994ed7fae?environmentId=84b3f89a-5553-4eca-89d4-fac79aa7264a |
 ---
@@ -22,10 +22,15 @@ _________________________________
 EventosVivos/
 
 ├── EventosVivos.Domain/           # Entidades, enums, interfaces, excepciones de dominio
+
 ├── EventosVivos.Application/      # Use cases (CQRS + MediatR), DTOs, validaciones
+
 ├── EventosVivos.Infrastructure/   # EF Core (SQLite), repositorios
+
 ├── EventosVivos.Api/              # Controllers REST, middleware, configuración
+
 ├── EventosVivos.UnitTests/        # Pruebas unitarias de dominio
+
 └── EventosVivos.IntegrationTests/ # Pruebas de integración HTTP end-to-end
 
 **Decisiones arquitectónicas:**
@@ -40,13 +45,21 @@ EventosVivos/
 eventosvivos-frontend/src/app/
 
 ├── core/
+
 │   ├── models/        # Interfaces TypeScript
+
 │   ├── services/      # HTTP services
+
 │   └── guards/        # Auth guard
+
 ├── features/
+
 │   ├── auth/          # Selección de rol
+
 │   ├── eventos/       # Lista, crear, reporte
+
 │   └── reservas/      # Crear, gestión
+
 └── app.routes.ts      # Lazy loading
 
 **Decisiones:**
@@ -79,7 +92,7 @@ eventosvivos-frontend/src/app/
 
 ### DevOps
 | Tecnología | Uso |
-
+|---|---|
 | GitHub Actions | CI/CD pipelines |
 | Railway | Despliegue backend |
 | Vercel | Despliegue frontend |
