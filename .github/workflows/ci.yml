@@ -26,6 +26,9 @@ jobs:
 
       - name: Unit Tests
         run: dotnet test EventosVivos.UnitTests --no-build --configuration Release --verbosity normal
+      
+      - name: Integration Tests
+        run: dotnet test EventosVivos.IntegrationTests --no-build --configuration Release --verbosity normal
 
   frontend:
     name: Build Frontend
