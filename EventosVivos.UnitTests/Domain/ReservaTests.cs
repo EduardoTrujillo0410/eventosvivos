@@ -3,7 +3,7 @@ using EventosVivos.Domain.Enums;
 using EventosVivos.Domain.Exceptions;
 using FluentAssertions;
 
-namespace EventosVivos.UnitTests.Domain; // ← corregir namespace
+namespace EventosVivos.UnitTests.Domain;
 
 public class ReservaTests
 {
