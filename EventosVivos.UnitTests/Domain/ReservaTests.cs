@@ -1,9 +1,9 @@
-﻿using EventosVivos.Domain.Entities;
+using EventosVivos.Domain.Entities;
 using EventosVivos.Domain.Enums;
 using EventosVivos.Domain.Exceptions;
 using FluentAssertions;
 
-namespace EventosVivos.Tests.Domain;
+namespace EventosVivos.UnitTests.Domain; // ← corregir namespace
 
 public class ReservaTests
 {
@@ -20,7 +20,6 @@ public class ReservaTests
     {
         var evento = EventoActivo();
         var reserva = Reserva.Create(evento, 2, "Juan Pérez", "juan@email.com");
-
         reserva.Estado.Should().Be(EstadoReserva.PendientePago);
         reserva.Cantidad.Should().Be(2);
         reserva.CodigoReserva.Should().BeNull();
@@ -30,8 +29,7 @@ public class ReservaTests
     public void RF03_Reserva_SinDisponibilidad_DebeRechazar()
     {
         var evento = EventoActivo(capacidad: 1);
-        Reserva.Create(evento, 1, "A", "a@b.com"); // ocupa la única entrada
-
+        Reserva.Create(evento, 1, "A", "a@b.com");
         var act = () => Reserva.Create(evento, 1, "B", "b@c.com");
         act.Should().Throw<DomainException>().WithMessage("*disponibles*");
     }
@@ -40,7 +38,6 @@ public class ReservaTests
     public void RN05_Precio_Mayor100_Mas10Entradas_DebeRechazar()
     {
         var evento = EventoActivo(precio: 150m, capacidad: 100);
-
         var act = () => Reserva.Create(evento, 11, "Carlos", "carlos@test.com");
         act.Should().Throw<DomainException>().WithMessage("*100*");
     }
@@ -50,9 +47,7 @@ public class ReservaTests
     {
         var evento = EventoActivo();
         var reserva = Reserva.Create(evento, 1, "Ana", "ana@test.com");
-
-        reserva.ConfirmarPago();
-
+        reserva.ConfirmarPago("EV-123456"); // ← código pasado externamente
         reserva.Estado.Should().Be(EstadoReserva.Confirmada);
         reserva.CodigoReserva.Should().MatchRegex(@"^EV-\d{6}$");
     }
@@ -62,9 +57,8 @@ public class ReservaTests
     {
         var evento = EventoActivo();
         var reserva = Reserva.Create(evento, 1, "Ana", "ana@test.com");
-        reserva.ConfirmarPago();
-
-        var act = () => reserva.ConfirmarPago();
+        reserva.ConfirmarPago("EV-111111");
+        var act = () => reserva.ConfirmarPago("EV-222222");
         act.Should().Throw<DomainException>().WithMessage("*confirmada*");
     }
 
@@ -73,9 +67,7 @@ public class ReservaTests
     {
         var evento = EventoActivo();
         var reserva = Reserva.Create(evento, 3, "Pedro", "pedro@test.com");
-
         reserva.Cancelar(evento.FechaInicio);
-
         reserva.Estado.Should().Be(EstadoReserva.Cancelada);
         reserva.CanceladaEn.Should().NotBeNull();
     }
@@ -85,12 +77,9 @@ public class ReservaTests
     {
         var evento = EventoActivo();
         var reserva = Reserva.Create(evento, 1, "Luis", "luis@test.com");
-        reserva.ConfirmarPago();
-
-        // Simular cancelación con menos de 48h
+        reserva.ConfirmarPago("EV-999999");
         var fechaInicio = DateTime.UtcNow.AddHours(10);
         reserva.CancelarConfirmada(fechaInicio);
-
         reserva.EsPerdida.Should().BeTrue();
         reserva.Estado.Should().Be(EstadoReserva.Cancelada);
     }
