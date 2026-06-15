@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build -- --configuration production",
+  "buildCommand": "npm install && npx ng build --configuration production",
   "outputDirectory": "dist/eventos-vivos-web/browser",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
