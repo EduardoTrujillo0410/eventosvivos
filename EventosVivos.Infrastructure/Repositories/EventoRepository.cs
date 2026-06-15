@@ -24,7 +24,6 @@ public class EventoRepository : IEventoRepository
     int pagina, int tamano,
     CancellationToken ct = default)
     {
-        // Límites de seguridad — nadie puede pedir 10000 registros
         pagina = Math.Max(1, pagina);
         tamano = Math.Clamp(tamano, 1, 50);
 

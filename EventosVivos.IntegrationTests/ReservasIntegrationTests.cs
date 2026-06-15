@@ -43,7 +43,6 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
         emailComprador = "juan@test.com"
     };
 
-    // RF-03
     [Fact]
     public async Task RF03_CrearReserva_Valida_Debe_Retornar201()
     {
@@ -81,7 +80,6 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
 
         await _client.PostAsJsonAsync("/api/reservas", ReservaValida(evento.Id, cantidad: 2));
 
-        // Ya no hay entradas
         var response = await _client.PostAsJsonAsync("/api/reservas",
             ReservaValida(evento.Id, cantidad: 1));
 
@@ -91,17 +89,12 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
     [Fact]
     public async Task RN04_CrearReserva_MenosDeUnaHora_Debe_Retornar422()
     {
-        // Evento que inicia en 30 minutos — no se puede reservar
         var token = await AuthHelper.ObtenerTokenAdmin(_client);
         AuthHelper.AgregarToken(_client, token);
 
-        // Creamos directo en DB para saltarnos la validación del handler
-        // En tests de integración real esto se haría con un endpoint admin especial
-        // Aquí verificamos la regla via dominio en unit test
-        // Este test documenta el comportamiento esperado
         var response = await _client.PostAsJsonAsync("/api/reservas", new
         {
-            eventoId = Guid.NewGuid(), // evento inexistente
+            eventoId = Guid.NewGuid(),
             cantidad = 1,
             nombreComprador = "Test",
             emailComprador = "test@test.com"
@@ -121,7 +114,6 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
     }
 
-    // RF-04
     [Fact]
     public async Task RF04_ConfirmarPago_Debe_GenerarCodigoEV()
     {
@@ -149,14 +141,12 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
 
         await _client.PatchAsync($"/api/reservas/{reserva.Id}/confirmar-pago", null);
 
-        // Segunda confirmación
         var response = await _client.PatchAsync(
             $"/api/reservas/{reserva.Id}/confirmar-pago", null);
 
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
     }
 
-    // RF-05
     [Fact]
     public async Task RF05_CancelarReserva_Pendiente_Debe_Retornar200()
     {
@@ -184,14 +174,12 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
 
         await _client.PatchAsync($"/api/reservas/{reserva.Id}/cancelar", null);
 
-        // Segunda cancelación
         var response = await _client.PatchAsync(
             $"/api/reservas/{reserva.Id}/cancelar", null);
 
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
     }
 
-    // RF-06
     [Fact]
     public async Task RF06_ReporteOcupacion_Debe_CalcularCorrectamente()
     {

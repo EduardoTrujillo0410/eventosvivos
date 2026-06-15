@@ -9,3 +9,4 @@ C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Domain\obj\Debug\net10.0\Ev
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Domain\obj\Debug\net10.0\refint\EventosVivos.Domain.dll
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Domain\obj\Debug\net10.0\EventosVivos.Domain.pdb
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Domain\obj\Debug\net10.0\ref\EventosVivos.Domain.dll
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Domain\obj\Debug\net10.0\EventosVivos.Domain.sourcelink.json

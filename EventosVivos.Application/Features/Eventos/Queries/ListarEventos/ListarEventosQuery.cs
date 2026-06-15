@@ -10,6 +10,6 @@ public record ListarEventosQuery(
     int? VenueId,
     string? Estado,
     string? Titulo,
-    int Pagina = 1,      // defecto página 1
-    int Tamano = 10      // defecto 10 por página
+    int Pagina = 1,      
+    int Tamano = 10      
 ) : IRequest<PagedResultDto<EventoDto>>;

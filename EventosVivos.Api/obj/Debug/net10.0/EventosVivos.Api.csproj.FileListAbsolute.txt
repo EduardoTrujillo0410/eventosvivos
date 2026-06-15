@@ -158,3 +158,4 @@ C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Api\bin\Debug\net10.0\runti
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Api\bin\Debug\net10.0\runtimes\linux-musl-riscv64\native\libe_sqlite3.so
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Api\bin\Debug\net10.0\runtimes\linux-riscv64\native\libe_sqlite3.so
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Api\obj\Debug\net10.0\EventosVivos.Api.sourcelink.json

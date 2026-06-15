@@ -35,7 +35,6 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
             tipo
         };
 
-    // RF-01
     [Fact]
     public async Task RF01_CrearEvento_Valido_Debe_Retornar201()
     {
@@ -75,7 +74,7 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
         await AutenticarComoAdmin();
 
         var response = await _client.PostAsJsonAsync("/api/eventos",
-            EventoValido(venueId: 2, capacidad: 999)); // Sala Norte solo tiene 50
+            EventoValido(venueId: 2, capacidad: 999));
 
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
     }
@@ -87,7 +86,6 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
 
         await _client.PostAsJsonAsync("/api/eventos", EventoValido(venueId: 1));
 
-        // Segundo evento en el mismo venue y mismo horario
         var response = await _client.PostAsJsonAsync("/api/eventos", EventoValido(venueId: 1));
 
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
@@ -115,7 +113,6 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
         response.StatusCode.Should().Be(HttpStatusCode.UnprocessableEntity);
     }
 
-    // RF-02
     [Fact]
     public async Task RF02_ListarEventos_SinFiltros_Debe_Retornar200()
     {

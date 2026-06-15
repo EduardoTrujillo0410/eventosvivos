@@ -35,7 +35,6 @@ public class AppDbContext : DbContext
             e.Property(x => x.Tipo).HasConversion<string>();
             e.Property(x => x.Estado).HasConversion<string>();
             e.HasOne(x => x.Venue).WithMany().HasForeignKey(x => x.VenueId);
-            // ← la relación con Reservas se define desde el lado de Reserva
         });
 
         modelBuilder.Entity<Reserva>(r =>
@@ -45,7 +44,6 @@ public class AppDbContext : DbContext
             r.Property(x => x.EmailComprador).IsRequired().HasMaxLength(200);
             r.Property(x => x.CodigoReserva).HasMaxLength(20);
             r.Property(x => x.Estado).HasConversion<string>();
-            // ← WithMany apunta a la colección Reservas de Evento
             r.HasOne(x => x.Evento)
              .WithMany(e => e.Reservas)
              .HasForeignKey(x => x.EventoId)

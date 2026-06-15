@@ -38,7 +38,6 @@ public class Evento
         if (fechaFin <= fechaInicio)
             throw new DomainException("La fecha de fin debe ser posterior al inicio.");
 
-        // RN-03: Restricción horario nocturno weekends
         if ((fechaInicio.DayOfWeek == DayOfWeek.Saturday || fechaInicio.DayOfWeek == DayOfWeek.Sunday)
             && fechaInicio.Hour >= 22)
             throw new DomainException("Los eventos en fin de semana no pueden iniciar después de las 22:00.");
@@ -89,4 +88,7 @@ public class Evento
            inicio < FechaFin && fin > FechaInicio;
 
     public void Cancelar() => Estado = EstadoEvento.Cancelado;
+
+    public void AgregarReservaParaTest(Reserva reserva)
+    => _reservas.Add(reserva);
 }

@@ -22,15 +22,12 @@ public class Reserva
 
     public static Reserva Create(Evento evento, int cantidad, string nombre, string email)
     {
-        // RN-04: No reservas < 1 hora para inicio
         if ((evento.FechaInicio - ColombiaDateTime.Now).TotalHours < 1)
             throw new DomainException("No se permiten reservas para eventos que inician en menos de 1 hora.");
 
-        // RF-03: Restricción < 24 horas → max 5 entradas
         if ((evento.FechaInicio - ColombiaDateTime.Now).TotalHours < 24 && cantidad > 5)
             throw new DomainException("Con menos de 24 horas para el evento, solo se permiten máximo 5 entradas.");
 
-        // RN-05: Precio > $100 → max 10 entradas
         if (evento.PrecioEntrada > 100 && cantidad > 10)
             throw new DomainException("Para eventos con precio mayor a $100, el máximo es 10 entradas por transacción.");
 
@@ -80,7 +77,6 @@ public class Reserva
         if (Estado != EstadoReserva.Confirmada)
             throw new DomainException("Solo se pueden cancelar reservas confirmadas con este método.");
 
-        // RN-07: < 48 horas → se registra como perdida, no libera cupo
         if ((fechaInicio - ColombiaDateTime.Now).TotalHours < 48)
             EsPerdida = true;
 

@@ -13,3 +13,4 @@ C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\refint\EventosVivos.Application.dll
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.pdb
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\ref\EventosVivos.Application.dll
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Application\obj\Debug\net10.0\EventosVivos.Application.sourcelink.json

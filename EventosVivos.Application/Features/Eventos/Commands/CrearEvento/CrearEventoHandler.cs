@@ -23,7 +23,6 @@ public class CrearEventoHandler : IRequestHandler<CrearEventoCommand, EventoDto>
         var venue = await _venues.GetByIdAsync(request.VenueId, ct)
             ?? throw new DomainException($"Venue con ID {request.VenueId} no encontrado.");
 
-        // RN-02: Superposición de venues
         var haySuperposcicion = await _eventos.ExisteSuperposcicion(
             request.VenueId, request.FechaInicio, request.FechaFin, null, ct);
 

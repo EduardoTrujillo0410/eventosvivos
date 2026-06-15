@@ -29,7 +29,9 @@ public class ReservaTests
     public void RF03_Reserva_SinDisponibilidad_DebeRechazar()
     {
         var evento = EventoActivo(capacidad: 1);
-        Reserva.Create(evento, 1, "A", "a@b.com");
+        var reservaExistente = Reserva.Create(evento, 1, "A", "a@b.com");
+        evento.AgregarReservaParaTest(reservaExistente);
+
         var act = () => Reserva.Create(evento, 1, "B", "b@c.com");
         act.Should().Throw<DomainException>().WithMessage("*disponibles*");
     }
@@ -47,7 +49,7 @@ public class ReservaTests
     {
         var evento = EventoActivo();
         var reserva = Reserva.Create(evento, 1, "Ana", "ana@test.com");
-        reserva.ConfirmarPago("EV-123456"); // ← código pasado externamente
+        reserva.ConfirmarPago("EV-123456");
         reserva.Estado.Should().Be(EstadoReserva.Confirmada);
         reserva.CodigoReserva.Should().MatchRegex(@"^EV-\d{6}$");
     }
