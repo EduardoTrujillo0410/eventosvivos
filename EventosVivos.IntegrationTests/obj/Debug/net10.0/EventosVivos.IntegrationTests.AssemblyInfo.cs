@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventosVivos.IntegrationTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b169f1f80b846452ef9c9345fb0d77949e5f5109")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30130f0935e330f5979753b8e2ddac7601b04623")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventosVivos.IntegrationTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventosVivos.IntegrationTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

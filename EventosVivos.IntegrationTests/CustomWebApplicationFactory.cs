@@ -1,5 +1,7 @@
 ﻿using EventosVivos.Domain.Entities;
 using EventosVivos.Infrastructure.Persistence;
+using EventosVivos.IntegrationTests.Helpers;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -24,8 +26,14 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                      d.ServiceType == typeof(DbContextOptions) ||
                      d.ServiceType == typeof(DbContextOptions<AppDbContext>)))
                 .ToList();
-
             foreach (var d in toRemove)
+                services.Remove(d);
+
+            var authToRemove = services
+                .Where(d => d.ServiceType.Namespace != null &&
+                            d.ServiceType.Namespace.Contains("Authentication"))
+                .ToList();
+            foreach (var d in authToRemove)
                 services.Remove(d);
 
             services.AddDbContext<AppDbContext>(opt =>
@@ -33,6 +41,9 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 opt.UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}");
                 opt.ConfigureWarnings(w => w.Ignore(InMemoryEventId.TransactionIgnoredWarning));
             });
+
+            services.AddAuthentication("Test")
+                .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>("Test", _ => { });
 
             var sp = services.BuildServiceProvider();
             using var scope = sp.CreateScope();

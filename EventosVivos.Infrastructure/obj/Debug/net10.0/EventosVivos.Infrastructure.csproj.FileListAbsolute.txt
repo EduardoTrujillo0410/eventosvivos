@@ -11,10 +11,10 @@ C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\ne
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.AssemblyInfo.cs
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.sourcelink.json
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosV.6F7F2C42.Up2Date
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.dll
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\refint\EventosVivos.Infrastructure.dll
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.pdb
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.genruntimeconfig.cache
 C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\ref\EventosVivos.Infrastructure.dll
-C:\Users\Eduardo\Proyectos\EventosVivos\EventosVivos.Infrastructure\obj\Debug\net10.0\EventosVivos.Infrastructure.sourcelink.json
