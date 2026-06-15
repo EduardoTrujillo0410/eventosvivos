@@ -9,10 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplication();
 
-if (builder.Environment.EnvironmentName != "Testing")
-{
-    builder.Services.AddInfrastructure(builder.Configuration);
-}
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
