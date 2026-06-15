@@ -3,6 +3,7 @@ using EventosVivos.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EventosVivos.IntegrationTests;
@@ -11,25 +12,28 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
+        builder.UseEnvironment("Testing");
+
         builder.ConfigureServices(services =>
         {
-            // Remover TODOS los descriptores relacionados con DbContext y proveedores de BD
-            var descriptorsToRemove = services
+            var toRemove = services
                 .Where(d =>
-                    d.ServiceType == typeof(DbContextOptions<AppDbContext>) ||
-                    d.ServiceType == typeof(AppDbContext) ||
-                    (d.ServiceType.FullName?.Contains("EntityFrameworkCore") == true &&
-                     d.ServiceType.FullName?.Contains("Sqlite") == true))
+                    d.ServiceType.Namespace != null &&
+                    (d.ServiceType.Namespace.Contains("EntityFrameworkCore") ||
+                     d.ServiceType == typeof(AppDbContext) ||
+                     d.ServiceType == typeof(DbContextOptions) ||
+                     d.ServiceType == typeof(DbContextOptions<AppDbContext>)))
                 .ToList();
 
-            foreach (var descriptor in descriptorsToRemove)
-                services.Remove(descriptor);
+            foreach (var d in toRemove)
+                services.Remove(d);
 
-            // Agregar InMemory limpio
             services.AddDbContext<AppDbContext>(opt =>
-                opt.UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}"));
+            {
+                opt.UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}");
+                opt.ConfigureWarnings(w => w.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+            });
 
-            // Seed venues
             var sp = services.BuildServiceProvider();
             using var scope = sp.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();

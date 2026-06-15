@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A4773930-F9F7-8125-B882-2CD95F47FA4D}|EventosVivos.IntegrationTests\\EventosVivos.IntegrationTests.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.integrationtests\\customwebapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4773930-F9F7-8125-B882-2CD95F47FA4D}|EventosVivos.IntegrationTests\\EventosVivos.IntegrationTests.csproj|solutionrelative:eventosvivos.integrationtests\\customwebapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85FF72F3-588E-D7B3-30AA-8CD1791FCC58}|EventosVivos.Api\\EventosVivos.Api.csproj|c:\\users\\eduardo\\proyectos\\eventosvivos\\eventosvivos.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85FF72F3-588E-D7B3-30AA-8CD1791FCC58}|EventosVivos.Api\\EventosVivos.Api.csproj|solutionrelative:eventosvivos.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Api\\Program.cs",
+              "RelativeDocumentMoniker": "EventosVivos.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.Api\\Program.cs",
+              "RelativeToolTip": "EventosVivos.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T01:38:49.488Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "EventosVivos.IntegrationTests\\CustomWebApplicationFactory.cs",
               "ToolTip": "C:\\Users\\Eduardo\\Proyectos\\EventosVivos\\EventosVivos.IntegrationTests\\CustomWebApplicationFactory.cs",
               "RelativeToolTip": "EventosVivos.IntegrationTests\\CustomWebApplicationFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-15T01:34:59.957Z",
               "EditorCaption": ""

@@ -8,7 +8,11 @@ using System.Threading.RateLimiting;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration);
+
+if (builder.Environment.EnvironmentName != "Testing")
+{
+    builder.Services.AddInfrastructure(builder.Configuration);
+}
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
