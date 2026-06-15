@@ -37,6 +37,10 @@ export class CrearEvento {
     this.venueService.listar().subscribe(v => this.venues.set(v));
   }
 
+  private toColombiaISO(value: string): string {
+  return value + ':00-05:00';
+  }
+
   submit() {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }
     this.enviando.set(true);
@@ -48,8 +52,8 @@ export class CrearEvento {
       descripcion: val.descripcion!,
       venueId: val.venueId!,
       capacidadMaxima: val.capacidadMaxima!,
-      fechaInicio: new Date(val.fechaInicio!).toISOString(),
-      fechaFin: new Date(val.fechaFin!).toISOString(),
+      fechaInicio: this.toColombiaISO(val.fechaInicio!),
+      fechaFin: this.toColombiaISO(val.fechaFin!),
       precioEntrada: val.precioEntrada!,
       tipo: val.tipo!
     }).subscribe({

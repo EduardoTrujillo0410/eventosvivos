@@ -50,8 +50,12 @@ public class Evento
             VenueId = venueId,
             Venue = venue,
             CapacidadMaxima = capacidadMaxima,
-            FechaInicio = fechaInicio.ToLocalTime(),
-            FechaFin = fechaFin.ToLocalTime(),
+            FechaInicio = TimeZoneInfo.ConvertTimeFromUtc(
+                fechaInicio.ToUniversalTime(),
+                TimeZoneInfo.FindSystemTimeZoneById("America/Bogota")),
+            FechaFin = TimeZoneInfo.ConvertTimeFromUtc(
+                fechaFin.ToUniversalTime(),
+                TimeZoneInfo.FindSystemTimeZoneById("America/Bogota")),
             PrecioEntrada = precioEntrada,
             Tipo = tipo,
             Estado = EstadoEvento.Activo,
