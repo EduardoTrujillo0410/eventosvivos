@@ -122,8 +122,8 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
         var response = await _client.GetAsync("/api/eventos");
 
         response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var eventos = await response.Content.ReadFromJsonAsync<List<EventoDto>>();
-        eventos.Should().NotBeNull();
+        var resultado = await response.Content.ReadFromJsonAsync<PagedResultDto<EventoDto>>();
+        resultado.Should().NotBeNull();
     }
 
     [Fact]
@@ -133,9 +133,8 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
         await _client.PostAsJsonAsync("/api/eventos", EventoValido(tipo: "taller", diasDesdeHoy: 15));
 
         var response = await _client.GetAsync("/api/eventos?tipo=taller");
-        var eventos = await response.Content.ReadFromJsonAsync<List<EventoDto>>();
-
-        eventos.Should().AllSatisfy(e => e.Tipo.Should().Be("taller"));
+        var resultado = await response.Content.ReadFromJsonAsync<PagedResultDto<EventoDto>>();
+        resultado!.Items.Should().AllSatisfy(e => e.Tipo.Should().Be("taller"));
     }
 
     private static DateTime ProximoDia(DayOfWeek dia)

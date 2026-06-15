@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EventosVivos.IntegrationTests;
@@ -18,38 +19,44 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         builder.ConfigureServices(services =>
         {
-            var dbDescriptors = services
-            .Where(d => d.ServiceType == typeof(DbContextOptions<AppDbContext>)
-                        || d.ServiceType == typeof(DbContextOptions)
-                        || (d.ImplementationType != null &&
-                            d.ImplementationType.Assembly.FullName != null &&
-                            d.ImplementationType.Assembly.FullName.Contains("Sqlite")))
-            .ToList();
-            foreach (var d in dbDescriptors) services.Remove(d);
+            var efDescriptors = services
+                .Where(d =>
+                    d.ServiceType == typeof(DbContextOptions<AppDbContext>) ||
+                    d.ServiceType == typeof(DbContextOptions) ||
+                    d.ServiceType == typeof(AppDbContext) ||
+                    (d.ServiceType.FullName != null &&
+                     d.ServiceType.FullName.StartsWith("Microsoft.EntityFrameworkCore")))
+                .ToList();
 
-            services.AddDbContext<AppDbContext>(opt =>
+            foreach (var d in efDescriptors)
+                services.Remove(d);
+
+            services.AddDbContext<AppDbContext>((sp, opt) =>
             {
                 opt.UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}");
-                opt.ConfigureWarnings(w => w.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+                opt.ConfigureWarnings(w =>
+                    w.Ignore(InMemoryEventId.TransactionIgnoredWarning));
             });
 
             var rateLimitDescriptors = services
                 .Where(d => d.ServiceType.FullName != null &&
                             d.ServiceType.FullName.Contains("RateLimiting"))
                 .ToList();
-            foreach (var d in rateLimitDescriptors) services.Remove(d);
+            foreach (var d in rateLimitDescriptors)
+                services.Remove(d);
 
             var authDescriptors = services
                 .Where(d => d.ServiceType.Namespace != null &&
                             d.ServiceType.Namespace.Contains("Authentication"))
                 .ToList();
-            foreach (var d in authDescriptors) services.Remove(d);
+            foreach (var d in authDescriptors)
+                services.Remove(d);
 
             services.AddAuthentication("Test")
                 .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>("Test", _ => { });
 
-            var sp = services.BuildServiceProvider();
-            using var scope = sp.CreateScope();
+            var sp2 = services.BuildServiceProvider();
+            using var scope = sp2.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             db.Database.EnsureCreated();
             SeedVenues(db);
