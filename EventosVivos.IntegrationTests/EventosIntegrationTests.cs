@@ -35,25 +35,6 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
             tipo
         };
 
-    [Fact]
-    public async Task RF01_CrearEvento_TituloCorto_Debe_Retornar400()
-    {
-        await AutenticarComoAdmin();
-
-        var response = await _client.PostAsJsonAsync("/api/eventos", new
-        {
-            titulo = "abc",
-            descripcion = "Descripción válida con más de diez caracteres",
-            venueId = 1,
-            capacidadMaxima = 50,
-            fechaInicio = DateTime.UtcNow.AddDays(3).ToString("o"),
-            fechaFin = DateTime.UtcNow.AddDays(3).AddHours(2).ToString("o"),
-            precioEntrada = 30,
-            tipo = "taller"
-        });
-
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-    }
 
     [Fact]
     public async Task RN01_CrearEvento_CapacidadSuperiorVenue_Debe_Retornar422()

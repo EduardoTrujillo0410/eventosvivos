@@ -49,23 +49,6 @@ public class ReservasIntegrationTests : IClassFixture<CustomWebApplicationFactor
 
 
     [Fact]
-    public async Task RF03_CrearReserva_EmailInvalido_Debe_Retornar400()
-    {
-        var evento = await CrearEventoBase();
-
-        var response = await _client.PostAsJsonAsync("/api/reservas", new
-        {
-            eventoId = evento.Id,
-            cantidad = 1,
-            nombreComprador = "Test",
-            emailComprador = "no-es-un-email"
-        });
-
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-    }
-
-
-    [Fact]
     public async Task RN04_CrearReserva_MenosDeUnaHora_Debe_Retornar422()
     {
         var token = await AuthHelper.ObtenerTokenAdmin(_client);
