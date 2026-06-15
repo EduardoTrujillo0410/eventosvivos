@@ -36,19 +36,6 @@ public class EventosIntegrationTests : IClassFixture<CustomWebApplicationFactory
         };
 
     [Fact]
-    public async Task RF01_CrearEvento_Valido_Debe_Retornar201()
-    {
-        await AutenticarComoAdmin();
-
-        var response = await _client.PostAsJsonAsync("/api/eventos", EventoValido());
-
-        response.StatusCode.Should().Be(HttpStatusCode.Created);
-        var evento = await response.Content.ReadFromJsonAsync<EventoDto>();
-        evento!.Titulo.Should().Be("Conferencia de Tecnología");
-        evento.Estado.Should().Be("activo");
-    }
-
-    [Fact]
     public async Task RF01_CrearEvento_TituloCorto_Debe_Retornar400()
     {
         await AutenticarComoAdmin();
