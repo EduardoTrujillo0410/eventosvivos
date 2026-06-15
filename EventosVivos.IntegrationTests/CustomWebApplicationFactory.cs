@@ -18,10 +18,14 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         builder.ConfigureServices(services =>
         {
-            // Reemplazar solo el DbContext
-            var descriptor = services.SingleOrDefault(
-                d => d.ServiceType == typeof(DbContextOptions<AppDbContext>));
-            if (descriptor != null) services.Remove(descriptor);
+            var dbDescriptors = services
+            .Where(d => d.ServiceType == typeof(DbContextOptions<AppDbContext>)
+                        || d.ServiceType == typeof(DbContextOptions)
+                        || (d.ImplementationType != null &&
+                            d.ImplementationType.Assembly.FullName != null &&
+                            d.ImplementationType.Assembly.FullName.Contains("Sqlite")))
+            .ToList();
+            foreach (var d in dbDescriptors) services.Remove(d);
 
             services.AddDbContext<AppDbContext>(opt =>
             {
@@ -29,14 +33,12 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 opt.ConfigureWarnings(w => w.Ignore(InMemoryEventId.TransactionIgnoredWarning));
             });
 
-            // Deshabilitar Rate Limiter
             var rateLimitDescriptors = services
                 .Where(d => d.ServiceType.FullName != null &&
                             d.ServiceType.FullName.Contains("RateLimiting"))
                 .ToList();
             foreach (var d in rateLimitDescriptors) services.Remove(d);
 
-            // Auth fake
             var authDescriptors = services
                 .Where(d => d.ServiceType.Namespace != null &&
                             d.ServiceType.Namespace.Contains("Authentication"))
@@ -46,7 +48,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             services.AddAuthentication("Test")
                 .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>("Test", _ => { });
 
-            // Seed
             var sp = services.BuildServiceProvider();
             using var scope = sp.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
