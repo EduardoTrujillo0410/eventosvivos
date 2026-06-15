@@ -13,14 +13,23 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         builder.ConfigureServices(services =>
         {
-            var descriptor = services.SingleOrDefault(
-                d => d.ServiceType == typeof(DbContextOptions<AppDbContext>));
-            if (descriptor != null)
+            // Remover TODOS los descriptores relacionados con DbContext y proveedores de BD
+            var descriptorsToRemove = services
+                .Where(d =>
+                    d.ServiceType == typeof(DbContextOptions<AppDbContext>) ||
+                    d.ServiceType == typeof(AppDbContext) ||
+                    (d.ServiceType.FullName?.Contains("EntityFrameworkCore") == true &&
+                     d.ServiceType.FullName?.Contains("Sqlite") == true))
+                .ToList();
+
+            foreach (var descriptor in descriptorsToRemove)
                 services.Remove(descriptor);
 
+            // Agregar InMemory limpio
             services.AddDbContext<AppDbContext>(opt =>
                 opt.UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}"));
 
+            // Seed venues
             var sp = services.BuildServiceProvider();
             using var scope = sp.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
