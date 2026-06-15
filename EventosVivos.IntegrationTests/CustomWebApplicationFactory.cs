@@ -38,13 +38,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                     w.Ignore(InMemoryEventId.TransactionIgnoredWarning));
             });
 
-            var rateLimitDescriptors = services
-                .Where(d => d.ServiceType.FullName != null &&
-                            d.ServiceType.FullName.Contains("RateLimiting"))
-                .ToList();
-            foreach (var d in rateLimitDescriptors)
-                services.Remove(d);
-
             var authDescriptors = services
                 .Where(d => d.ServiceType.Namespace != null &&
                             d.ServiceType.Namespace.Contains("Authentication"))

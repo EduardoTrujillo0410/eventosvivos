@@ -60,7 +60,9 @@ using (var scope = app.Services.CreateScope())
 app.MapOpenApi();
 app.UseCors("AllowAngular");
 app.UseMiddleware<ExceptionMiddleware>();
-app.UseRateLimiter();
+if (app.Environment.EnvironmentName != "Testing")
+    app.UseRateLimiter();
+
 app.MapControllers();
 app.Run();
 
